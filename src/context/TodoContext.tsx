@@ -8,6 +8,7 @@ interface TodoContextType {
     addTodo: (text: string) => void
     removeTodo: (id: number) => void
     toggleTodo: (id: number) => void
+    updateTodo: (id: number, newText: string) => void
 }
 
 const TodoContext = createContext<TodoContextType | undefined>(undefined) // 초기 Context 생성 (undefined 허용)
@@ -34,7 +35,15 @@ export function TodoProvider({ children }: { children: ReactNode }) {
         setTodos(todos.map((todo) => (todo.id === id ? { ...todo, checked: !todo.checked } : todo))) // 선택한 id의 todo의 checked 상태를 반전
     }
 
-    return <TodoContext.Provider value={{ todos, addTodo, removeTodo, toggleTodo }}>{children}</TodoContext.Provider>
+    const updateTodo = (id: number, newText: string) => {
+        setTodos(todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo)))
+    }
+
+    return (
+        <TodoContext.Provider value={{ todos, addTodo, removeTodo, toggleTodo, updateTodo }}>
+            {children}
+        </TodoContext.Provider>
+    )
 }
 
 export function useTodos(): TodoContextType {
