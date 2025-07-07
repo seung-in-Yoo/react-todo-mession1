@@ -1,0 +1,21 @@
+# dependencies
+/node_modules
+
+# production
+/dist
+
+# local env files
+.env
+.env.*.local
+
+# IDEs and editors
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# OS
+.DS_Store
+Thumbs.db
