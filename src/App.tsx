@@ -1,5 +1,13 @@
+import TodoWriteForm from './components/TodoWriteForm'
+import TodoList from './components/TodoList'
+
 function App() {
-    return <></>
+    return (
+        <>
+            <TodoWriteForm />
+            <TodoList />
+        </>
+    )
 }
 
 export default App
