@@ -20,9 +20,16 @@ function TodoWriteForm() {
     }
 
     return (
-        <form onSubmit={handleOnSubmit}>
-            <input type="text" name="todo" />
-            <button type="submit">등록</button>
+        <form onSubmit={handleOnSubmit} className="flex items-center gap-2 mb-4">
+            <input
+                type="text"
+                name="todo"
+                placeholder="할 일을 입력하세요"
+                className="flex-1 px-4 py-2 border-b-2 border-pink-300 outline-none"
+            />
+            <button type="submit" className="text-pink-600 font-semibold hover:underline whitespace-nowrap">
+                등록
+            </button>
         </form>
     )
 }

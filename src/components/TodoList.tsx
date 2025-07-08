@@ -5,7 +5,7 @@ function TodoList() {
     const { todos } = useTodos()
 
     return (
-        <ul>
+        <ul className="space-y-2">
             {todos.map((todo) => (
                 <TodoItem key={todo.id} todo={todo} />
             ))}
